@@ -2,7 +2,7 @@
 
 An easy way to add keyboard shortcuts to your react applications. Powered by [keyboardist.js](https://github.com/soska/keyboardist.js)
 
-[Click here for a simple demo](./docs/index.html)
+[Click here for a simple demo](http://soska.github.io/react-keyboardist/docs/index.html)
 
 ## How to use
 
