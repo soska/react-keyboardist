@@ -33,7 +33,11 @@ class App extends React.Component {
 ## Installation
 
 ```
-$ npm install react-keyboardist
+$ yarn add react-keyboardist
+
+or
+
+$ npm install --save react-keyboardist
 ```
 
 ## Other Events
