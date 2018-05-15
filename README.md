@@ -2,6 +2,8 @@
 
 An easy way to add keyboard shortcuts to your react applications. Powered by [keyboardist.js](https://github.com/soska/keyboardist.js)
 
+[Click here for a simple demo](./docs/index.html)
+
 ## How to use
 
 Just pass a dictionary with the shape of `{keyName : [function]}` via the `bindings` property and they will be automatically binded when the component mounts.
