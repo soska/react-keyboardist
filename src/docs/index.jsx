@@ -97,8 +97,6 @@ const items = [
 ];
 
 const Modal = ({ show = false, onClose, children }) => {
-  console.log('ONCLOSE', onClose);
-
   if (!show) {
     return null;
   }
@@ -161,6 +159,9 @@ class DemoApp extends React.Component {
           This is a demo built with{' '}
           <a href="https://github.com/soska/react-keyboardist">
             React Keyboardist
+          </a>. Source code for this demo{' '}
+          <a href="https://github.com/soska/react-keyboardist/blob/master/src/docs/index.jsx">
+            is here
           </a>
         </p>
       </div>
