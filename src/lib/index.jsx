@@ -2,6 +2,11 @@ import { Component } from 'react';
 import PropTypes from 'prop-types';
 import Keyboardist from 'keyboardist';
 
+const listeners = {
+  keydown: Keyboardist('keydown'),
+  keyup: Keyboardist('keyup'),
+};
+
 class Keyboard extends Component {
   subs = [];
 
@@ -17,7 +22,7 @@ class Keyboard extends Component {
 
   constructor(props) {
     super(props);
-    this.keyboardListener = Keyboardist(props.eventName);
+    this.keyboardListener = listeners[props.eventName];
   }
 
   componentDidMount() {

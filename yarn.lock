@@ -4060,9 +4060,9 @@ json5@^0.5.0, json5@^0.5.1:
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/json5/-/json5-0.5.1.tgz#1eade7acc012034ad84e2396767ead9fa5495821"
 
-keyboardist@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/keyboardist/-/keyboardist-1.0.1.tgz#bce707f3fb57471d52bbd847f6ddfcdd5e6cc95b"
+keyboardist@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/keyboardist/-/keyboardist-1.0.4.tgz#93838b8a85f9e2319771e3c4cce3011fef5e36ea"
 
 keyv@3.0.0:
   version "3.0.0"

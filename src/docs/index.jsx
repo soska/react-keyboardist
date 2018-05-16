@@ -32,7 +32,7 @@ class KeyboardList extends React.Component {
   next = () => {
     let nextItem = this.state.selectedItem + 1;
     if (nextItem >= this.props.items.length) {
-      nextItem = 0;
+      nextItem = this.props.items.length - 1;
     }
     this.setState({ selectedItem: nextItem });
   };
@@ -40,7 +40,7 @@ class KeyboardList extends React.Component {
   prev = () => {
     let nextItem = this.state.selectedItem - 1;
     if (nextItem < 0) {
-      nextItem = this.props.items.length - 1;
+      nextItem = 0;
     }
     this.setState({ selectedItem: nextItem });
   };
@@ -61,10 +61,6 @@ class KeyboardList extends React.Component {
     this.setState({ selectedItem: nextItem });
   };
 
-  reset = () => {
-    this.setState({ selectedItem: 0 });
-  };
-
   submit = () => {
     this.props.onSelect(this.state.selectedItem);
   };
@@ -79,7 +75,6 @@ class KeyboardList extends React.Component {
             up: this.prev,
             'shift+up': this.superPrev,
             enter: this.submit,
-            esc: this.reset,
           }}
         />
         <List items={items} selectedItem={this.state.selectedItem} />
@@ -101,28 +96,76 @@ const items = [
   'Chico Che',
 ];
 
-function Demo() {
+const Modal = ({ show = false, onClose, children }) => {
+  console.log('ONCLOSE', onClose);
+
+  if (!show) {
+    return null;
+  }
+
   return (
-    <div>
-      <h1>Select your favorite keyboardist</h1>
-      <p className="instructions">
-        Use up and down arrows to higlight a name / Hold down <kbd>Shift</kbd>{' '}
-        to move three names at a time / press <kbd>Esc</kbd> to reset.
-      </p>
-      <KeyboardList
-        items={items}
-        onSelect={index => {
-          alert(`You selected ${items[index]}`);
+    <div className="modal">
+      <Keyboardist
+        bindings={{
+          esc: onClose,
         }}
       />
-      <p className="footer">
-        This is a demo built with{' '}
-        <a href="https://github.com/soska/react-keyboardist">
-          React Keyboardist
-        </a>
-      </p>
+      <div className="modal__content">{children}</div>
     </div>
   );
+};
+
+class DemoApp extends React.Component {
+  state = {
+    selected: null,
+    showingDialog: false,
+  };
+
+  showDialog = () => {
+    this.setState({
+      showingDialog: true,
+    });
+  };
+
+  hideDialog = () => {
+    this.setState({
+      showingDialog: false,
+    });
+  };
+
+  setItem = index => {
+    this.setState({
+      selectedItem: items[index],
+      showingDialog: true,
+    });
+  };
+
+  render() {
+    return (
+      <div>
+        <Modal show={this.state.showingDialog} onClose={this.hideDialog}>
+          <h3>You selected</h3>
+          <h2>{this.state.selectedItem}</h2>
+          <p className="instructions">
+            press <kbd>ESC</kbd> to close
+          </p>
+        </Modal>
+
+        <h1>Select your favorite keyboardist</h1>
+        <p className="instructions">
+          Use up and down arrows to higlight a name / Hold down <kbd>Shift</kbd>{' '}
+          to move three names at a time / press <kbd>Enter</kbd> to select.
+        </p>
+        <KeyboardList items={items} onSelect={this.setItem} />
+        <p className="footer">
+          This is a demo built with{' '}
+          <a href="https://github.com/soska/react-keyboardist">
+            React Keyboardist
+          </a>
+        </p>
+      </div>
+    );
+  }
 }
 
-render(<Demo />, document.getElementById('app'));
+render(<DemoApp />, document.getElementById('app'));

@@ -1,6 +1,7 @@
 body {
-  background: lightgoldenrodyellow;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  background: #fafafa;
+  font-family: 'Futura', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
+    sans-serif;
   margin: 0;
 }
 
@@ -16,9 +17,12 @@ h1 {
 
 .instructions {
   padding: 11px;
-  color: maroon;
+  margin: 11px;
+  color: #777;
   margin: none;
   font-family: monospace;
+  background: #f9f9e6;
+  border: 1px solid #f0f0de;
 }
 
 .instructions kbd {
@@ -38,7 +42,7 @@ h1 {
   padding: 14px;
   font-size: 16px;
   border-bottom: 1px solid #dfdfd0;
-  color: rgba(0, 0, 0, 0.8);
+  color: #666;
 }
 
 .list-item--selected {
@@ -50,4 +54,49 @@ h1 {
 .footer {
   color: #777;
   padding: 11px;
+}
+
+.modal {
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal__content {
+  background: white;
+  border-radius: 4px;
+  padding: 22px;
+  border: 1px solid #aaa;
+  box-shadow: rgba(0, 0, 0, 0.2) 4px 4px 0;
+}
+
+.modal__content h3 {
+  text-align: center;
+  font-weight: normal;
+  color: #999;
+  font-size: 18px;
+}
+
+.modal__content h2 {
+  text-align: center;
+  font-weight: bold;
+  color: #555;
+  font-size: 22px;
+  color: rebeccapurple;
+}
+
+.modal__content-help {
+  padding: 11px;
+  margin: 11px;
+  color: #777;
+  margin: none;
+  font-family: monospace;
+  background: #f9f9e6;
+  border: 1px solid #f0f0de;
 }

@@ -42,7 +42,7 @@
     "url": "git@github.com:soska/react-keyboardist.git"
   },
   "dependencies": {
-    "keyboardist": "^1.0.1",
+    "keyboardist": "^1.0.4",
     "prop-types": "^15.6.1"
   }
 }
