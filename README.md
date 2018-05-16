@@ -1,3 +1,5 @@
+![](assets/cover.png)
+
 # React Keyboardist
 
 An easy way to add keyboard shortcuts to your react applications. Powered by [keyboardist.js](https://github.com/soska/keyboardist.js)
