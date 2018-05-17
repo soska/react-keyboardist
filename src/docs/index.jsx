@@ -219,7 +219,7 @@ class DemoApp extends React.Component {
           </a>. Source code for this demo{' '}
           <a href="https://github.com/soska/react-keyboardist/blob/master/src/docs/index.jsx">
             is here
-          </a>
+          </a>.
         </p>
       </div>
     );
