@@ -54,7 +54,7 @@ By default React Keyboardist will listen to `keydown` events, but you can use `k
   bindings={{
     '/': this.focusSearch,
     '+': this.showMenu,
-    '?': this.showHelp,
+    h: this.showHelp,
     esc: this.logOut,
   }}
 />

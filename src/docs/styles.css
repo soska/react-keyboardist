@@ -108,15 +108,17 @@ h1 {
   padding: 11px 22px;
   border-radius: 22px;
   background: rgba(255, 255, 255, 0.9);
-  border: 1px solid #f9f9f9;
+  border: 1px solid #eee;
   display: flex;
   justify-content: center;
   align-items: center;
   color: #777;
-  opacity: 0.8;
+  opacity: 0.65;
   transform: scale(1);
   transition-property: all;
-  transition-duration: 0.5s;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-out;
+  transform-origin: 95% 95%;
 }
 
 .love span {
@@ -125,5 +127,6 @@ h1 {
 
 .love--loving {
   opacity: 1;
-  transform: scale(1.1);
+  transform: scale(1.8);
+  transition-duration: 3s;
 }
