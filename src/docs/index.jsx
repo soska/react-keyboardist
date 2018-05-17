@@ -96,6 +96,61 @@ const items = [
   'Chico Che',
 ];
 
+class Love extends React.Component {
+  state = {
+    loving: false,
+    love: 0,
+  };
+
+  startLoving = () => {
+    this.setState({ loving: true });
+  };
+
+  stopLoving = () => {
+    this.setState({ loving: false });
+  };
+
+  love = () => {
+    if (this.state.loving) {
+      console.log('love is in the air');
+      let love = this.state.love + 1;
+      this.setState({ love });
+    }
+    this.timeout = window.setTimeout(this.love, 100);
+  };
+
+  componentDidMount() {
+    this.love();
+  }
+
+  componentWillUnmount() {
+    window.clearTimeout(this.timeout);
+  }
+
+  render() {
+    return (
+      <React.Fragment>
+        <Keyboardist
+          bindings={{
+            l: this.startLoving,
+          }}
+        />
+        <Keyboardist
+          eventName={'keyup'}
+          bindings={{
+            l: this.stopLoving,
+          }}
+        />
+        <div className={this.state.loving ? 'love love--loving' : 'love'}>
+          <span>❤️</span>
+          <span>=</span>
+          <span>{this.state.love}</span>
+        </div>
+      </React.Fragment>
+    );
+  }
+}
+
 const Modal = ({ show = false, onClose, children }) => {
   if (!show) {
     return null;
@@ -152,8 +207,10 @@ class DemoApp extends React.Component {
         <h1>Select your favorite keyboardist</h1>
         <p className="instructions">
           Use up and down arrows to higlight a name / Hold down <kbd>Shift</kbd>{' '}
-          to move three names at a time / press <kbd>Enter</kbd> to select.
+          to move three names at a time / press <kbd>Enter</kbd> to select /
+          press <kbd>L</kbd> to show love.
         </p>
+        <Love />
         <KeyboardList items={items} onSelect={this.setItem} />
         <p className="footer">
           This is a demo built with{' '}
