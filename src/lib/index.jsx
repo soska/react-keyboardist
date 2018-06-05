@@ -1,4 +1,5 @@
-import { Component } from 'react';
+// @flow
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import Keyboardist from 'keyboardist';
 
@@ -7,20 +8,22 @@ const listeners = {
   keyup: Keyboardist('keyup'),
 };
 
-class Keyboard extends Component {
+type Props = {
+  eventName: 'keydown' | 'keyup',
+  bindings: { [string]: func },
+};
+
+class Keyboard extends React.Component<Props> {
   subs = [];
 
-  static propTypes = {
-    eventName: PropTypes.oneOf(['keydown', 'keyup']),
-    bindings: PropTypes.objectOf(PropTypes.func),
-  };
+  keyboardListener: func;
 
   static defaultProps = {
     eventName: 'keydown',
     bindings: {},
   };
 
-  constructor(props) {
+  constructor(props: Props) {
     super(props);
     this.keyboardListener = listeners[props.eventName];
   }
