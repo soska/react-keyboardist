@@ -1,14 +1,12 @@
 {
   "name": "react-keyboardist",
-  "version": "0.1.2",
-  "description":
-    "A simple keyboard global manager for react. Powered by keyboardist.",
+  "version": "0.1.3",
+  "description": "A simple keyboard global manager for react. Powered by keyboardist.",
   "main": "lib/index.js",
   "scripts": {
     "flow": "flow",
     "favicon": "cpx \"src/docs/favicon.*\" \"docs\"",
     "dev": "webpack-dev-server --mode development",
-    "favicon": "cpx \"src/docs/favicon.*\" \"docs\"",
     "build:lib": "babel src/lib -d lib",
     "build:docs": "webpack --mode production",
     "build": "npm run build:lib && npm run build:docs && npm run favicon"
