@@ -1,8 +1,8 @@
+# 🎹 React Keyboardist
+
 ![](assets/cover.png)
 
-# React Keyboardist
-
-React Keyboardist offers a simple and declarative way to add keyboard shortcuts to your react applications. It is just a React Wrapper for [Keyboardist](https://github.com/soska/keyboardist.js)
+React Keyboardist offers a simple and declarative way to add keyboard shortcuts to your react applications. It is just a React Wrapper for [🎹Keyboardist](https://github.com/soska/keyboardist.js).
 
 [Click here for a simple demo](http://soska.github.io/react-keyboardist/docs/index.html)
 
@@ -55,11 +55,11 @@ By default React Keyboardist will listen to `keydown` events, but you can use `k
 <Keyboardist
   eventName="keyup"
   bindings={{
-            Slash: this.focusSearch,
-            Period: this.showMenu,
-            Escape: this.logOut,
-            KeyK: this.next,
-            KeyJ: this.prev,,
+    Slash: this.focusSearch,
+    Period: this.showMenu,
+    Escape: this.logOut,
+    KeyK: this.next,
+    KeyJ: this.prev,
   }}
 />
 ```
@@ -100,7 +100,7 @@ const ModalDialog = ({ onClose }) => (
 
 ## Key Monitor
 
-The `monitor` property allows you to either pass a monitor function or just set it to `true` to use Keyboardist's default monitor. You can [read more about Keyboardist monitor over here.]:https://github.com/soska/keyboardist.js#key-monitor
+The `monitor` property allows you to either pass a monitor function or just set it to `true` to use Keyboardist's default monitor. You can [read more about Keyboardist monitor over here.](https://github.com/soska/keyboardist.js#key-monitor)
 
 ```javascript
 <Keyboardist
