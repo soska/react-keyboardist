@@ -1,8 +1,17 @@
 body {
-  background: #fafafa;
   font-family: 'Futura', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
     sans-serif;
   margin: 0;
+  background: linear-gradient(#099, #86d);
+  background-attachment: fixed;
+}
+
+.demo {
+  margin: 22px;
+  border-radius: 8px;
+  background: #fafafa;
+  box-shadow: rgba(0, 0, 0, 0.125) 8px 8px 0;
+  border: 1px solid #eee;
 }
 
 h1 {

@@ -213,23 +213,26 @@ class DemoApp extends React.Component {
           </p>
         </Modal>
 
-        <h1>Select your favorite keyboardist</h1>
-        <p className="instructions">
-          Use up and down arrows to higlight a name / Hold down <kbd>Shift</kbd>{' '}
-          to move three names at a time / press <kbd>Enter</kbd> to select /
-          press <kbd>Escape</kbd> to reset / press <kbd>L</kbd> to show love.
-        </p>
-        <Love />
-        <KeyboardList items={items} onSelect={this.setItem} />
-        <p className="footer">
-          This is a demo built with{' '}
-          <a href="https://github.com/soska/react-keyboardist">
-            React Keyboardist
-          </a>. Source code for this demo{' '}
-          <a href="https://github.com/soska/react-keyboardist/blob/master/src/docs/index.jsx">
-            is here
-          </a>.
-        </p>
+        <div className="demo">
+          <h1>Select your favorite keyboardist</h1>
+          <p className="instructions">
+            Use up and down arrows to higlight a name / Hold down{' '}
+            <kbd>Shift</kbd> to move three names at a time / press{' '}
+            <kbd>Enter</kbd> to select / press <kbd>Escape</kbd> to reset /
+            press <kbd>L</kbd> to show love.
+          </p>
+          <Love />
+          <KeyboardList items={items} onSelect={this.setItem} />
+          <p className="footer">
+            This is a demo built with{' '}
+            <a href="https://github.com/soska/react-keyboardist">
+              React Keyboardist
+            </a>. Source code for this demo{' '}
+            <a href="https://github.com/soska/react-keyboardist/blob/master/src/docs/index.jsx">
+              is here
+            </a>.
+          </p>
+        </div>
       </div>
     );
   }
