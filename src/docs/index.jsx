@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
-import Keyboardist from '../../lib';
+import Keyboardist from '../lib';
 import './styles.css';
 
 const List = ({ items, selectedItem }) => {
@@ -65,17 +65,23 @@ class KeyboardList extends React.Component {
     this.props.onSelect(this.state.selectedItem);
   };
 
+  reset = () => {
+    this.setState({ selectedItem: 0 });
+  };
+
   render() {
     return (
       <React.Fragment>
         <Keyboardist
           bindings={{
-            down: this.next,
-            'shift+down': this.superNext,
-            up: this.prev,
-            'shift+up': this.superPrev,
-            enter: this.submit,
+            Down: this.next,
+            'Shift+Down': this.superNext,
+            Up: this.prev,
+            'Shift+Up': this.superPrev,
+            Enter: this.submit,
+            Escape: this.reset,
           }}
+          monitor={true}
         />
         <List items={items} selectedItem={this.state.selectedItem} />
       </React.Fragment>
@@ -132,13 +138,13 @@ class Love extends React.Component {
       <React.Fragment>
         <Keyboardist
           bindings={{
-            l: this.startLoving,
+            KeyL: this.startLoving,
           }}
         />
         <Keyboardist
           eventName={'keyup'}
           bindings={{
-            l: this.stopLoving,
+            KeyL: this.stopLoving,
           }}
         />
         <div className={this.state.loving ? 'love love--loving' : 'love'}>
@@ -160,7 +166,7 @@ const Modal = ({ show = false, onClose, children }) => {
     <div className="modal">
       <Keyboardist
         bindings={{
-          esc: onClose,
+          Escape: onClose,
         }}
       />
       <div className="modal__content">{children}</div>
@@ -184,6 +190,9 @@ class DemoApp extends React.Component {
     this.setState({
       showingDialog: false,
     });
+    // returning false means the event does not propagate,
+    // so the table reset action won't be fired.
+    return false;
   };
 
   setItem = index => {
@@ -208,7 +217,7 @@ class DemoApp extends React.Component {
         <p className="instructions">
           Use up and down arrows to higlight a name / Hold down <kbd>Shift</kbd>{' '}
           to move three names at a time / press <kbd>Enter</kbd> to select /
-          press <kbd>L</kbd> to show love.
+          press <kbd>Escape</kbd> to reset / press <kbd>L</kbd> to show love.
         </p>
         <Love />
         <KeyboardList items={items} onSelect={this.setItem} />

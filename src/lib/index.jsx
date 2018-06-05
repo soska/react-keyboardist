@@ -1,26 +1,28 @@
 // @flow
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import Keyboardist from 'keyboardist';
+import createListener from 'keyboardist';
 
 const listeners = {
-  keydown: Keyboardist('keydown'),
-  keyup: Keyboardist('keyup'),
+  keydown: createListener('keydown'),
+  keyup: createListener('keyup'),
 };
 
 type Props = {
   eventName: 'keydown' | 'keyup',
-  bindings: { [string]: func },
+  bindings: { [string]: any },
+  monitor?: any,
 };
 
-class Keyboard extends React.Component<Props> {
+class Keyboard extends React.PureComponent<Props> {
   subs = [];
 
-  keyboardListener: func;
+  keyboardListener: any;
 
   static defaultProps = {
     eventName: 'keydown',
     bindings: {},
+    monitor: null,
   };
 
   constructor(props: Props) {
@@ -29,13 +31,17 @@ class Keyboard extends React.Component<Props> {
   }
 
   componentDidMount() {
-    const { bindings } = this.props;
+    const { bindings, monitor } = this.props;
 
     Object.keys(bindings).forEach(eventName => {
       const callback = bindings[eventName];
       const subscription = this.keyboardListener.subscribe(eventName, callback);
       this.subs.push(subscription);
     });
+
+    if (monitor) {
+      this.keyboardListener.setMonitor(monitor);
+    }
   }
 
   componentWillUnmount() {
