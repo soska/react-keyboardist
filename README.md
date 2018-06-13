@@ -82,20 +82,21 @@ const App = ({ openDialog, closeDialog, isDialogOpen, handleLogout }) => (
   </div>
 );
 
-const ModalDialog = ({ onClose }) => (
-  <div className="dialog">
-    <Keyboard
-      bindings={{
-        Escape: () => {
-          onClose();
-          // this will prevent the Escape binding in the parent component to be triggered.
-          return false;
-        },
-      }}
-    />
-    <DialogContentOrWhatever />
-  </div>
-);
+const ModalDialog = ({ onClose }) => {
+  const bindings = {
+    Escape: () => {
+      onClose();
+      // this will prevent the Escape binding in the parent component to be triggered.
+      return false;
+    },
+  };
+  return (
+    <div className="dialog">
+      <Keyboard bindings={bindings} />
+      <DialogContentOrWhatever />
+    </div>
+  );
+};
 ```
 
 ## Key Monitor
@@ -104,10 +105,7 @@ The `monitor` property allows you to either pass a monitor function or just set 
 
 ```javascript
 <Keyboardist
-  bindings={{
-    Enter: openDialog,
-    Escape: handleLogout,
-  }}
+  bindings={bindings}
   monitor={(keyName, matched) => {
     // do something
   }}
