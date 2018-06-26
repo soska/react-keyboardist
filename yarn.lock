@@ -3650,9 +3650,9 @@ jsonify@~0.0.0:
   version "0.0.0"
   resolved "https://registry.yarnpkg.com/jsonify/-/jsonify-0.0.0.tgz#2c74b6ee41d93ca51b7b5aaee8f503631d252a73"
 
-keyboardist@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/keyboardist/-/keyboardist-1.1.0.tgz#64c4da13011e1d8d20375a78cded86e8d5c4e86e"
+keyboardist@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/keyboardist/-/keyboardist-1.2.1.tgz#ba070bbd3d1f469b5bb8f5106ab99d3ac0dfbaa7"
 
 keyv@3.0.0:
   version "3.0.0"

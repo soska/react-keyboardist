@@ -6,6 +6,23 @@ body {
   background-attachment: fixed;
 }
 
+.bpm-meter {
+  padding: 11px;
+  text-align: center;
+}
+
+.bpm-meter__input {
+  font-family: 'Futura', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS';
+  border: none;
+  padding: 11px;
+  margin-left: 11px;
+  font-size: 18px;
+  color: 13px;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.125) 0 4px 1px inset;
+  color: #999;
+}
+
 .demo {
   margin: 22px;
   border-radius: 8px;

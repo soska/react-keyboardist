@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
-import Keyboardist from '../lib';
+import Keyboardist, { KeyboardInput } from '../lib';
 import './styles.css';
 
 const List = ({ items, selectedItem }) => {
@@ -174,6 +174,46 @@ const Modal = ({ show = false, onClose, children }) => {
   );
 };
 
+class BPMMeter extends React.Component {
+  state = {
+    bpm: 140,
+  };
+
+  up = () => {
+    const bpm = this.state.bpm + 1;
+    if (bpm < 280) {
+      this.setState({ bpm });
+    }
+  };
+
+  down = () => {
+    const bpm = this.state.bpm - 1;
+    if (bpm > 90) {
+      this.setState({ bpm });
+    }
+  };
+
+  render() {
+    return (
+      <div className="bpm-meter">
+        <label>
+          <span>Chose a BPM</span>
+          <KeyboardInput
+            value={this.state.bpm}
+            className={'bpm-meter__input'}
+            onChange={() => {}}
+            bindings={{
+              UP: this.up,
+              DOWN: this.down,
+            }}
+          />
+          <span className="instructions">&larr; Use your keyboard arrows</span>
+        </label>
+      </div>
+    );
+  }
+}
+
 class DemoApp extends React.Component {
   state = {
     selected: null,
@@ -212,6 +252,7 @@ class DemoApp extends React.Component {
             press <kbd>ESC</kbd> to close
           </p>
         </Modal>
+        <BPMMeter />
 
         <div className="demo">
           <h1>Select your favorite keyboardist</h1>
