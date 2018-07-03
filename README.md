@@ -34,7 +34,7 @@ $ npm install --save react-keyboardist
 
 The default export `<Keyboardist/>` provides a global listener attached to the document element that will listen for every key event except those that happen inside input elements (e.g. `<input/>`,`<textarea/>`). This is useful, for example, to have keystrokes that activate different parts of your UI.
 
-If you need to listen for keybvoard events inside an input using a similar API, React Keyboardist also comes with a [KeyboardInput](#keyboard-input) component.
+If you need to listen for keyboard events inside an input using a similar API, React Keyboardist also comes with a [KeyboardInput](#keyboard-input) component.
 
 ### How to use<a name="how-to-use"></a>
 
