@@ -1,13 +1,12 @@
 {
   "name": "react-keyboardist",
-  "version": "0.2.0",
-  "description":
-    "A simple keyboard global manager for react. Powered by keyboardist.",
+  "version": "2.0.0",
+  "description": "A simple keyboard global manager for react. Powered by keyboardist.",
   "main": "dist/index.js",
   "scripts": {
     "flow": "flow",
     "favicon": "cpx \"src/docs/favicon.*\" \"docs\"",
-    "dev": "webpack-dev-server --mode development",
+    "dev": "next dev",
     "build:lib": "babel src/lib -d dist",
     "build:docs": "webpack --mode production",
     "build": "npm run build:lib && npm run build:docs && npm run favicon"
@@ -15,29 +14,16 @@
   "keywords": [],
   "license": "MIT",
   "peerDependencies": {
-    "react": "^15.3.0 || ^16.2.0",
-    "react-dom": "^15.3.0 || ^16.2.0"
+    "react": "16.13.1",
+    "react-dom": "^16.13.1"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.4",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-flow": "^6.23.0",
-    "babel-preset-react": "^6.24.1",
-    "concurrently": "^3.5.1",
-    "css-loader": "^0.28.11",
-    "flow-bin": "^0.73.0",
-    "html-webpack-plugin": "^3.2.0",
-    "react": "^16.3.2",
-    "react-dom": "^16.3.2",
-    "style-loader": "^0.21.0",
-    "webpack": "^4.6.0",
-    "webpack-cli": "^2.0.15",
-    "webpack-dev-server": "^3.1.3",
-    "cpx": "^1.5.0"
+    "@types/node": "^13.9.2",
+    "@types/react": "^16.9.23",
+    "next": "^9.3.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "typescript": "^3.8.3"
   },
   "author": "Armando Sosa <arm.sosa@gmail.com>",
   "homepage": "https://github.com/soska/react-keyboardist",

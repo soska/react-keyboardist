@@ -1,4 +1,5 @@
-docs
+pages
 src
 .babelrc
 webpack.config.js
+.next
